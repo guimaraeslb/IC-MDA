@@ -1,14 +1,16 @@
 import requests
+from dotenv import load_dotenv
+import os
 
-url = "https://www.googleapis.com/youtube/v3/videos"
+load_dotenv()
 
 def get_video_viewCount(video_id):
-    params = {"key": "AIzaSyAtjHKIdUaHRAUQseIhqow0Wl4a3eKBnT8", "part": "statistics", "id": video_id}
+    params = {"key": os.getenv("KEY"), "part": "statistics", "id": video_id}
     response = requests.get(url, params).json()
     return(response["items"][0]["statistics"]["viewCount"])
 
 def get_video_likeCount(video_id):
-    params = {"key": "AIzaSyAtjHKIdUaHRAUQseIhqow0Wl4a3eKBnT8", "part": "statistics", "id": video_id}
+    params = {"key": os.getenv("KEY"), "part": "statistics", "id": video_id}
     response = requests.get(url, params).json()
     if("likeCount" not in response["items"][0]["statistics"]):
         return "-"
