@@ -16,11 +16,11 @@ def get_videos():
     videos_info = []
     video = {'title':'', 'description':'', 'channelTitle': '', 'videoId': '', 'viewCount': '', 'likeCount': ''}
 
-    for i in response:
-        video['title'] = i["snippet"]['title']   
-        video['description'] = i["snippet"]['description']
-        video['channelTitle'] = i["snippet"]['channelTitle']
-        video['videoId'] = i["id"]['videoId']
+    for video_info in response:
+        video['title'] = video_info["snippet"]['title']   
+        video['description'] = video_info["snippet"]['description']
+        video['channelTitle'] = video_info["snippet"]['channelTitle']
+        video['videoId'] = video_info["id"]['videoId']
         video['viewCount'] = get_videos_content.get_video_viewCount(video['videoId'])
         video['likeCount'] = get_videos_content.get_video_likeCount(video['videoId'])
         videos_info.append(video)

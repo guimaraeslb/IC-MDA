@@ -1,5 +1,4 @@
 import requests
-import pandas as pd
 
 url = "https://www.googleapis.com/youtube/v3/videos"
 
