@@ -35,6 +35,7 @@ def get_videos():
         video['collectionDate'] = datetime.datetime.now()
         video['url'] = "www.youtube.com/watch?v=" + video['videoId']
         videos_info.append(video)
+        print(video)
         video = {'title':'', 'description':'', 'publishedAt':'','channelId': '', 'channelTitle':'', 'videoId': '', 'viewCount': '', 'likeCount': '', 'contentDescription':'', 'collectionDate': '', 'url': ''}
     create_dataframe(videos_info)
     
